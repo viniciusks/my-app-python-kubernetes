@@ -1,0 +1,27 @@
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - /home/vinicius/aplication/data_base/mongo_data:/data/db
+
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+  volumes:
+    - /home/vinicius/aplication/data_base/redis_data:/data
+
+elasticsearch:
+  image: elasticsearch
+  ports:
+    - "9200:9200"
+
+#python:
+#  image: my_app:container
+#  ports:
+#    - "8080:8080"
+#  links:
+#    - mongo
+#    - redis
+#    - elasticsearch

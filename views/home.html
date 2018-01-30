@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+    <form action="/search/users" method="POST">
+        <legend>Search for a user</legend>
+        <input type="text" name="name" placeholder="username"><br>
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <form action="/insert/users" method="POST">
+        <legend>Register a user</legend>
+        <input type="text" name="name" placeholder="name"><br>
+        <input type="text" name="email" placeholder="email"><br>
+        <button type="submit">Send</button>
+    </form>
+    <br>
+    <form action="/search/products" method="POST">
+        <legend>Search for a product</legend>
+        <input type="text" name="name" placeholder="Name product"><br>
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <form action="/insert/products" method="POST">
+        <legend>Register a product</legend>
+        <input type="text" name="name" placeholder="name"><br>
+        <input type="text" name="type" placeholder="type"><br>
+        <input type="text" name="model" placeholder="model"><br>
+        <input type="text" name="status" placeholder="status"><br>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

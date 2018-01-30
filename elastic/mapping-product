@@ -1,0 +1,13 @@
+{
+    "mappings": {
+        "products": {
+            "properties": {
+                "mongo_id": { "type": "integer" },
+                "name": { "type": "text" },
+                "type": { "type": "text" },
+                "model": { "type": "text" },
+                "status": { "type": "text" }
+            }
+        }
+    }
+}

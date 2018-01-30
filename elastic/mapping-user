@@ -1,0 +1,11 @@
+{
+    "mappings": {
+        "users": {
+            "properties": {
+                "mongo_id": { "type": "integer" },
+                "name": { "type": "text" },
+                "email": { "type": "text" }
+            }
+        }
+    }
+}
