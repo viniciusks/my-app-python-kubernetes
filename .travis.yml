@@ -1,4 +1,3 @@
 sudo: required
-language: python3
 before_script:
 - sh preparing-www.sh
