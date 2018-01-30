@@ -1,11 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Construir a imagem docker
 cd docker/
 docker build -t my_app .
-docker login
-viniciusks13
-Vinicius@12
 docker tag my_app viniciusks13/my_app
 docker push viniciusks13/my_app
 
