@@ -9,8 +9,8 @@ spec:
   selector:
     app: my-app
   ports:
-  - port: 8081
-    targetPort: 8081
+  - port: 4444
+    targetPort: 4444
 
 ---
 
@@ -29,10 +29,10 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: viniciusks13/my_app:test
+        image: viniciusks13/my_app
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - containerPort: 4444
 
 # comando deletar
 # kubectl delete deployment my-app && kubectl delete svc my-app-service

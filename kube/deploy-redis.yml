@@ -68,4 +68,4 @@ spec:
               path: redis.conf
 
 # comando deletar
-# kubectl delete rc redis && kubectl delete svc redis && kubectl delete configmap example-redis-config
+# kubectl delete deployment redis && kubectl delete svc redis && kubectl delete configmap example-redis-config
