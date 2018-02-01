@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build image docker') {
             steps {
-                sh 'docker build -t viniciusks13/my_app'
+                sh 'docker build -t viniciusks13/my_app .'
                 sh 'docker login'
                 sh 'viniciusks13'
                 sh 'Vinicius@12'
