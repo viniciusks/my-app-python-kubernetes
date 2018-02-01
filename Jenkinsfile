@@ -1,6 +1,6 @@
-node {
+pipeline {
     agent any
-    
+
     def appName = "my_app"
 
     stages {
