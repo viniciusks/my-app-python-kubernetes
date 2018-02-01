@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    appName = "my_app"
+
     stages {
         stage('Check') {
             steps {
@@ -9,10 +11,8 @@ pipeline {
         }
         stage('Build image docker') {
             steps {
-                sh 'docker images'
                 sh 'echo entrou'
-                sh 'ls'
-                sh 'pwd'
+                sh 'echo ${appName}'
             }
         }
     }

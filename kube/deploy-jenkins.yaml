@@ -32,8 +32,12 @@ metadata:
     app: jenkins
 spec:
   ports:
-    - port: 80
+    - name: jenkins
+      port: 8080
       targetPort: 8080
+    - name: jenkins-agent
+      port: 50000
+      targetPort: 50000
   selector:
     app: jenkins
     tier: jenkins
@@ -55,7 +59,6 @@ spec:
         tier: jenkins
     spec:
       containers:
-#      - image: chadmoon/jenkins-docker-kubectl:latest
       - image: jenkins
         name: jenkins
         securityContext:
@@ -63,6 +66,8 @@ spec:
         ports:
         - containerPort: 8080
           name: jenkins
+        - containerPort: 50000
+          name: jenkins-agent
         volumeMounts:
         - name: jenkins-persistent-storage
           mountPath: /root/.jenkins
