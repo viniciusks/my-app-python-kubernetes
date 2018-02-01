@@ -1,20 +1,15 @@
 pipeline {
     agent any
-
+    environment {
+        CC = 'clang'
+    }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/viniciusks/my-app-python-kubernetes.git'
+        stage('Example') {
+            environment {
+                DEBUG_FLAGS = '-g'
             }
-        }
-        stage('Package Docker image') {
             steps {
-                def img = docker.build('viniciusks13/my_app:latest','.')
-            }
-        }
-        stage('Publish') {
-            steps {
-                echo 'Publishing....'
+                sh 'printenv'
             }
         }
     }
