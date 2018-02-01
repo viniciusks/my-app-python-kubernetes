@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    appName = "my_app"
-
     stages {
         stage('Check') {
             steps {
@@ -11,6 +9,8 @@ pipeline {
         }
         stage('Build image docker') {
             steps {
+                def appName = "my_app"
+
                 sh 'echo entrou'
                 sh 'echo ${appName}'
             }
