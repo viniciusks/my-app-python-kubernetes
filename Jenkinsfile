@@ -1,6 +1,6 @@
-pipeline {
+node {
     agent any
-
+    
     appName = "my_app"
 
     stages {
