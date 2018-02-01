@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Build image docker') {
             steps {
+                sh 'docker images'
                 sh 'echo entrou'
                 sh 'ls'
                 sh 'pwd'
