@@ -1,21 +1,13 @@
 pipeline {
-    agent any
-
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+        stage('Checkout') {
+            git 'https://github.com/viniciusks/my-app-python-kubernetes.git'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+        stage('Package Docker image') {
+            def img = docker.build('viniciusks13/my_app:latest','.')            
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+        stage('Publish') {
+            echo 'Publishing'            
         }
     }
 }
