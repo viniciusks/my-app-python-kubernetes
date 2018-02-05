@@ -23,8 +23,7 @@ node {
     }
 
     stage("Deploy"){
-        sh "docker images"
-        //sh "kubectl rollout status deployment/my-app"
+        sh "kubectl create -f kube/deploy-my-app.yml"
     }
 
 }
