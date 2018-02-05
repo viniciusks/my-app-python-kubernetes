@@ -16,6 +16,7 @@ node {
     stage("Build"){
         sh "docker build -t ${imageName} ."
         sh "docker images"
+        sh "docker rmi $(docker images -f 'dangling=true' -q)"
     }
     
 //    stage("Push"){
