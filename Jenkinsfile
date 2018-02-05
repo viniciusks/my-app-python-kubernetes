@@ -9,8 +9,7 @@ node {
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     appName = "my_app"
     registryHost = "viniciusks13/"
-    //imageName = "${registryHost}${appName}:${tag}"
-    imageName = "${registryHost}${appName}"
+    imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 
     stage("Build"){
@@ -27,8 +26,9 @@ node {
         sh "docker pull ${imageName}"
     }
 */
-    stage("Deploy"){
-        sh "kubectl set image deployments/my-app my-app=${imageName}"
+    stage("Deploy"){        
+        sh "sed 's#viniciusks13/my_app:latest#'$BUILDIMG'#' kube/deploy-my-app.yaml | kubectl apply -f -"
+        //sh "kubectl set image deployments/my-app my-app=${imageName}"
         sh "kubectl rollout status deployment/my-app"
     }
 
