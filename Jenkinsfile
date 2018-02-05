@@ -26,7 +26,7 @@ node {
     }
 */
     stage("Deploy"){        
-        sh "sed 's#viniciusks13/my_app:latest#'$BUILDIMG'#' kube/deploy-my-app.yml | kubectl apply -f -"
+        sh "sed 's#viniciusks13/my_app:latest#'$BUILDIMG'#' kube/deploy-my-app.yaml | kubectl apply -f -"
         //sh "kubectl set image deployments/my-app my-app=${imageName}"
         sh "kubectl rollout status deployment/my-app"
     }
