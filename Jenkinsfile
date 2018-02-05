@@ -15,7 +15,7 @@ node {
     stage("Build"){
         sh "docker build -t ${imageName} ."
     }
-/*
+
     stage("Login"){
         sh "docker login -u viniciusks13 -p Vinicius@12"
         sh "docker push ${imageName}"
@@ -24,7 +24,7 @@ node {
     stage("Pulling image"){
         sh "docker pull ${imageName}"
     }
-*/
+
     stage("Deploy"){        
         //sh "sed 's#viniciusks13/my_app:latest#'$BUILDIMG'#' kube/deploy-my-app.yaml | kubectl apply -f -"
         sh "kubectl set image deployments/my-app my-app=${imageName}"
