@@ -23,7 +23,8 @@ node {
     }
 
     stage("Deploy"){
-        sh "kubectl create -f kube/deploy-my-app.yml"
+        sh "kubectl set image deployments/my-app kubernetes-bootcamp=viniciusks13/my_app:latest"
+        sh "kubectl rollout status deployment/my-app"
     }
 
 }
