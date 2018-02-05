@@ -32,12 +32,8 @@ metadata:
     app: jenkins
 spec:
   ports:
-    - name: jenkins
-      port: 8080
+    - port: 80
       targetPort: 8080
-    - name: jenkins-agent
-      port: 50000
-      targetPort: 50000
   selector:
     app: jenkins
     tier: jenkins
@@ -59,15 +55,13 @@ spec:
         tier: jenkins
     spec:
       containers:
-      - image: jenkins
+      - image: chadmoon/jenkins-docker-kubectl:latest
         name: jenkins
         securityContext:
           privileged: true
         ports:
         - containerPort: 8080
           name: jenkins
-        - containerPort: 50000
-          name: jenkins-agent
         volumeMounts:
         - name: jenkins-persistent-storage
           mountPath: /root/.jenkins
@@ -80,3 +74,6 @@ spec:
       - name: jenkins-persistent-storage
         persistentVolumeClaim:
           claimName: jenkins-claim
+
+# comando deletar
+# kubectl delete deployment jenkins && kubectl delete svc jenkins && kubectl delete persistentvolumeclaim jenkins-claim && kubectl delete persistentvolume jenkins

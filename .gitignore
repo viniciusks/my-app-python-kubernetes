@@ -1,4 +1,5 @@
 commit-github.sh
-docker
-elastic
-.vscode
+docker/
+elastic/
+.vscode/
+sh/
