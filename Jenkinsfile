@@ -17,6 +17,9 @@ node {
     }
     
     stage("Push"){
+        sh "docker login"
+        sh "viniciusks13"
+        sh "Vinicius@12"
         sh "docker push ${imageName}"
     }
 
