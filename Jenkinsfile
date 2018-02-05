@@ -6,8 +6,7 @@ node {
     
     sh "git rev-parse --short HEAD > commit-id"
 
-    //tag = readFile('commit-id').replace("\n", "").replace("\r", "")
-    tag = "latest"
+    tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     appName = "my_app"
     registryHost = "viniciusks13/"
     imageName = "${registryHost}${appName}:${tag}"
@@ -18,7 +17,7 @@ node {
     }
 
     stage("Deploy"){
-        sh "kubectl set image deployments/my-app my-app=viniciusks13/my_app:latest"
+        sh "kubectl set image deployments/my-app my-app=${imageName}"
         sh "kubectl rollout status deployment/my-app"
     }
 
