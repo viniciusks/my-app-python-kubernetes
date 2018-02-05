@@ -1,19 +1,28 @@
-pipeline {
-    agent any
+node {
 
-    stages {
-        stage('Check') {
-            steps {
-                git 'https://github.com/viniciusks/my-app-python-kubernetes.git'
-            }
-        }
-        stage('Build image docker') {
-            steps {
-                def appName = "my_app"
+    checkout scm
 
-                sh 'echo entrou'
-                sh 'echo ${appName}'
-            }
-        }
+    env.DOCKER_API_VERSION="1.23"
+    
+    sh "git rev-parse --short HEAD > commit-id"
+
+    tag = readFile('commit-id').replace("\n", "").replace("\r", "")
+    appName = "my_app"
+    registryHost = "viniciusks13/"
+    imageName = "${registryHost}${appName}:${tag}"
+    env.BUILDIMG=imageName
+
+    stage("Build"){
+        sh "docker build -t ${imageName} -f Dockerfile viniciusks13/my_app"
     }
+    
+    stage("Push"){
+        sh "docker push ${imageName}"
+    }
+
+    stage("Deploy"){
+        sh "sed 's#viniciusks13/my_app:latest#'$BUILDIMG'#' kube/deploy-my-app.yml | kubectl apply -f -"
+        sh "kubectl rollout status deployment/my-app"
+    }
+
 }
