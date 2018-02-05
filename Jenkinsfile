@@ -13,7 +13,6 @@ node {
     env.BUILDIMG=imageName
 
     stage("Build"){
-        sh "docker rmi ${imageName}"
         sh "docker build -t ${imageName} ."
     }
 /*
