@@ -16,11 +16,6 @@ node {
     stage("Build"){
         sh "docker build -t ${imageName} ."
     }
-    
-//    stage("Push"){
-//        sh "docker login -u viniciusks13 -p Vinicius@12"
-//        sh "docker push ${imageName}"
-//    }
 
     stage("Deploy"){
         sh "kubectl set image deployments/my-app my-app=viniciusks13/my_app:latest"
