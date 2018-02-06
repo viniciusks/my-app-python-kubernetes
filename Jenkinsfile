@@ -11,6 +11,11 @@ node {
     registryHost = "viniciusks13/"
     imageName = "${registryHost}${appName}:${tag}"
 
+    state("Test"){
+        sh "echo ${tag}"
+    }
+
+/*
     stage("Build"){
         sh "docker build -t ${imageName} ."
     }
@@ -25,5 +30,5 @@ node {
         sh "kubectl set image deployments/my-app my-app=${imageName}"
         sh "kubectl rollout status deployment/my-app"
     }
-
+*/
 }
