@@ -11,10 +11,6 @@ node {
     registryHost = "viniciusks13/"
     imageName = "${registryHost}${appName}:${tag}"
 
-    stage("Test"){
-        sh "git diff --name-only SHA_build HEAD"
-    }
-
     stage("Build"){
         sh "docker build -t ${imageName} ."
     }
