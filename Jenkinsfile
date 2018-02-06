@@ -12,9 +12,8 @@ node {
     imageName = "${registryHost}${appName}:${tag}"
 
     stage("Test"){
-        sh "echo ${tag}"
+        sh "git diff --name-only SHA_build HEAD"
     }
-
 
     stage("Build"){
         sh "docker build -t ${imageName} ."
