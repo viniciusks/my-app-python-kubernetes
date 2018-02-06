@@ -1,5 +1,5 @@
 node {
-
+/*
     //checkout scm
 
     env.DOCKER_API_VERSION="1.23"
@@ -15,7 +15,7 @@ node {
         sh "echo ${tag}"
     }
 
-/*
+
     stage("Build"){
         sh "docker build -t ${imageName} ."
     }
