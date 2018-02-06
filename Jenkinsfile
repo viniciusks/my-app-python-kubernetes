@@ -1,6 +1,6 @@
 node {
-/*
-    //checkout scm
+
+    checkout scm
 
     env.DOCKER_API_VERSION="1.23"
     
@@ -30,5 +30,5 @@ node {
         sh "kubectl set image deployments/my-app my-app=${imageName}"
         sh "kubectl rollout status deployment/my-app"
     }
-*/
+    
 }
