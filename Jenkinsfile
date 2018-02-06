@@ -10,7 +10,6 @@ node {
     appName = "my_app"
     registryHost = "viniciusks13/"
     imageName = "${registryHost}${appName}:${tag}"
-    env.BUILDIMG=imageName
 
     stage("Build"){
         sh "docker build -t ${imageName} ."
