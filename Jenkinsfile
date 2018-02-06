@@ -11,7 +11,7 @@ node {
     registryHost = "viniciusks13/"
     imageName = "${registryHost}${appName}:${tag}"
 
-    state("Test"){
+    stage("Test"){
         sh "echo ${tag}"
     }
 
