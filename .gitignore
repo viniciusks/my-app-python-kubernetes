@@ -2,5 +2,4 @@ commit-github.sh
 docker/
 elastic/
 .vscode/
-sh/
 my_app.deploy/
